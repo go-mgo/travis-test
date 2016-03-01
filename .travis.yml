@@ -11,6 +11,9 @@ services:
     - mongodb
 
 before_script:
+    - wget https://niemeyer.s3.amazonaws.com/daemontools.tar.gz
+    - tar xzvf daemontools.tar.gz
+    - daemontools/svc
     - make startdb
 
 script:

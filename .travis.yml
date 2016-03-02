@@ -2,27 +2,28 @@ language: go
 
 go_import_path: gopkg.in/mgo.v2-unstable
 
-addons:
-    apt:
-        packages:
-            - daemontools
-
-services:
-    - mongodb
+env:
+    global:
+        - BUCKET=https://niemeyer.s3.amazonaws.com
+    matrix:
+        - MONGO=mongodb-linux-x86_64-subscription-ubuntu1204-2.2.6
+        - MONGO=mongodb-linux-x86_64-subscription-ubuntu1204-2.4.13
+        - MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-2.6.10
+        - MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-3.0.8
 
 install:
+    - wget $BUCKET/$MONGO
+    - tar xzvf $MONGO.tgz
+    - export PATH=$PWD/$MONGO/bin:$PATH
+
+    - wget $BUCKET/daemontools.tar.gz
+    - tar xzvf daemontools.tar.gz
+    - export PATH=$PWD/daemontools:$PATH
+
     - go get gopkg.in/check.v1
     - go get gopkg.in/yaml.v2
 
-env:
-    global:
-    matrix:
-
 before_script:
-    - wget https://niemeyer.s3.amazonaws.com/daemontools.tar.gz
-    - tar xzvf daemontools.tar.gz
-    - daemontools/svc
-    - export PATH=$PWD/daemontools:$PATH
     - make startdb
 
 script:

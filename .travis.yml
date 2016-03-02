@@ -20,6 +20,7 @@ env:
         #- MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-2.6.10
         #- MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-3.0.8
         - MONGO=mongodb-linux-x86_64-2.4.14
+        - MONGO=mongodb-linux-x86_64-2.6.11
         - MONGO=mongodb-linux-x86_64-3.0.9
 
 install:

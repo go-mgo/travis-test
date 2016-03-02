@@ -1964,7 +1964,7 @@ func (s *S) TestFindTailTimeoutNoSleep(c *C) {
 	go func() {
 		// The internal AwaitData timing of MongoDB is around 2 seconds,
 		// so this item should arrive within the AwaitData threshold.
-		time.Sleep(500 * time.Millisecon)
+		time.Sleep(500 * time.Millisecond)
 		session := session.New()
 		defer session.Close()
 		coll := session.DB("mydb").C("mycoll")

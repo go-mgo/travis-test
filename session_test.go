@@ -2480,6 +2480,10 @@ func (s *S) TestSortScoreText(c *C) {
 	c.Assert(err, IsNil)
 	defer session.Close()
 
+	if !s.versionAtLeast(2, 4) {
+		c.Skip("Text search depends on 2.4+")
+	}
+
 	coll := session.DB("mydb").C("mycoll")
 
 	err = coll.EnsureIndex(mgo.Index{
@@ -2970,6 +2974,9 @@ func (s *S) TestEnsureIndex(c *C) {
 			continue
 		}
 		c.Assert(err, IsNil)
+		if !s.versionAtLeast(2, 4) && test.expected["textIndexVersion"] != nil {
+			continue
+		}
 
 		expectedName := test.index.Name
 		if expectedName == "" {

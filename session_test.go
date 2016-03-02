@@ -3729,7 +3729,7 @@ func (s *S) TestFsyncLock(c *C) {
 
 	done := make(chan time.Time)
 	go func() {
-		time.Sleep(3e9)
+		time.Sleep(3 * time.Second)
 		now := time.Now()
 		err := session.FsyncUnlock()
 		c.Check(err, IsNil)
@@ -3742,7 +3742,7 @@ func (s *S) TestFsyncLock(c *C) {
 	c.Assert(err, IsNil)
 
 	c.Assert(unlocked.After(unlocking), Equals, true)
-	c.Assert(unlocked.Sub(unlocking) < 1e9, Equals, true)
+	c.Assert(unlocked.Sub(unlocking) < 2*time.Second, Equals, true)
 }
 
 func (s *S) TestFsync(c *C) {

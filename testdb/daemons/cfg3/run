@@ -7,7 +7,7 @@ exec mongod \
 	--smallfiles \
 	--nssize=1 \
 	--oplogSize=1 \
-	--dbpath ./db \
+	--dbpath $PWD/db \
 	--bind_ip=127.0.0.1 \
 	--port 40103 \
 	--configsvr \

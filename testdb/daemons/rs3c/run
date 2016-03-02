@@ -8,7 +8,7 @@ exec mongod \
 	--nssize=1 \
 	--oplogSize=1 \
 	--shardsvr \
-	--dbpath ./db \
+	--dbpath $PWD/db \
 	--replSet rs3 \
 	--bind_ip=127.0.0.1 \
 	--port 40033 \

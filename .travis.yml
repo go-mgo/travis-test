@@ -12,9 +12,11 @@ services:
 
 install:
     - go get gopkg.in/check.v1
+    - go get gopkg.in/yaml.v2
 
 env:
     global:
+    matrix:
 
 before_script:
     - wget https://niemeyer.s3.amazonaws.com/daemontools.tar.gz

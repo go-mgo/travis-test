@@ -1960,13 +1960,11 @@ func (s *S) TestFindTailTimeoutNoSleep(c *C) {
 		}
 	}
 
-	mgo.ResetStats()
-
 	// The following call to Next will block.
 	go func() {
 		// The internal AwaitData timing of MongoDB is around 2 seconds,
 		// so this item should arrive within the AwaitData threshold.
-		time.Sleep(5e8)
+		time.Sleep(500 * time.Millisecon)
 		session := session.New()
 		defer session.Close()
 		coll := session.DB("mydb").C("mycoll")
@@ -1980,20 +1978,6 @@ func (s *S) TestFindTailTimeoutNoSleep(c *C) {
 	c.Assert(iter.Timeout(), Equals, false)
 	c.Assert(result.N, Equals, 47)
 	c.Log("Got Next with N=47!")
-
-	// The following may break because it depends a bit on the internal
-	// timing used by MongoDB's AwaitData logic.  If it does, the problem
-	// will be observed as more GET_MORE_OPs than predicted:
-	// 1*QUERY_OP for nonce + 1*GET_MORE_OP on Next +
-	// 1*INSERT_OP + 1*QUERY_OP for getLastError on insert of 47
-	stats := mgo.GetStats()
-	if s.versionAtLeast(2, 6) {
-		c.Assert(stats.SentOps, Equals, 3)
-	} else {
-		c.Assert(stats.SentOps, Equals, 4)
-	}
-	c.Assert(stats.ReceivedOps, Equals, 3)  // REPLY_OPs for 1*QUERY_OP for nonce + 1*GET_MORE_OPs and 1*QUERY_OP
-	c.Assert(stats.ReceivedDocs, Equals, 3) // nonce + N=47 result + getLastError response
 
 	c.Log("Will wait for a result which will never come...")
 

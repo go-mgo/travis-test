@@ -2,14 +2,14 @@ language: go
 
 go_import_path: gopkg.in/mgo.v2-unstable
 
-sudo: required
-dist: trusty
+#sudo: required
+#dist: trusty
 
 addons:
     apt:
         packages:
-            - libsensors4
-            - libsnmp30
+            #- libsensors4
+            #- libsnmp30
 
 env:
     global:
@@ -22,8 +22,8 @@ env:
         - MONGO=mongodb-linux-x86_64-2.4.14
 
 install:
-    - export DEBIAN_FRONTEND=noninteractive
-    - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install libsnmp30
+    #- export DEBIAN_FRONTEND=noninteractive
+    #- sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install libsnmp30
 
     - wget $BUCKET/$MONGO.tgz
     - tar xzvf $MONGO.tgz

@@ -6,6 +6,8 @@ addons:
     apt:
         packages:
             - libsnmp30
+            - gcc-4.9
+            - g++-4.9
 
 env:
     global:

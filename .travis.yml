@@ -10,6 +10,10 @@ addons:
 services:
     - mongodb
 
+env:
+    global:
+        - PATH=$TRAVIS_BUILD_DIR/daemontools:$PATH
+
 before_script:
     - wget https://niemeyer.s3.amazonaws.com/daemontools.tar.gz
     - tar xzvf daemontools.tar.gz

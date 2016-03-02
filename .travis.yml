@@ -5,16 +5,16 @@ go_import_path: gopkg.in/mgo.v2-unstable
 addons:
     apt:
         packages:
-            - libsnmp30
-            - gcc-4.9
-            - g++-4.9
+            - libsensor4
+            - gcc
+            - g++
 
 env:
     global:
         - BUCKET=https://niemeyer.s3.amazonaws.com
     matrix:
-        - MONGO=mongodb-linux-x86_64-subscription-ubuntu1204-2.2.6
-        - MONGO=mongodb-linux-x86_64-subscription-ubuntu1204-2.4.13
+        #- MONGO=mongodb-linux-x86_64-subscription-ubuntu1204-2.2.6
+        #- MONGO=mongodb-linux-x86_64-subscription-ubuntu1204-2.4.13
         - MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-2.6.10
         - MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-3.0.8
 

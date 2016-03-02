@@ -30,7 +30,8 @@ start() {
         fi
         sleep 1
     done
-    echo "Failed to start all processes. Check out what's up at $PWD now!"
+    echo "Failed to start processes. svstat _testdb/daemons/* output:"
+    svstat daemons/*
     exit 1
 }
 

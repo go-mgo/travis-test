@@ -2,7 +2,7 @@
 
 . ../.env
 
-exec mongod $COMMONDOPTS \
+exec mongod $COMMONCOPTS \
 	--port 40103 \
 	--configsvr \
 	--auth \

@@ -12,12 +12,12 @@ services:
 
 env:
     global:
-        - PATH=$TRAVIS_BUILD_DIR/daemontools:$PATH
 
 before_script:
     - wget https://niemeyer.s3.amazonaws.com/daemontools.tar.gz
     - tar xzvf daemontools.tar.gz
     - daemontools/svc
+    - export PATH=$PWD/buildtools:$PATH
     - make startdb
 
 script:

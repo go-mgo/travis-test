@@ -8,6 +8,7 @@ addons:
             - libsensor4
             - gcc
             - g++
+            - perl-base
 
 env:
     global:

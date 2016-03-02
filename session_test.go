@@ -2968,15 +2968,16 @@ func (s *S) TestEnsureIndex(c *C) {
 	idxs := session.DB("mydb").C("system.indexes")
 
 	for _, test := range indexTests {
+		if !s.versionAtLeast(2, 4) && test.expected["textIndexVersion"] != nil {
+			continue
+		}
+
 		err = coll.EnsureIndex(test.index)
 		msg := "text search not enabled"
 		if err != nil && strings.Contains(err.Error(), msg) {
 			continue
 		}
 		c.Assert(err, IsNil)
-		if !s.versionAtLeast(2, 4) && test.expected["textIndexVersion"] != nil {
-			continue
-		}
 
 		expectedName := test.index.Name
 		if expectedName == "" {

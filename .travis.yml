@@ -17,7 +17,7 @@ before_script:
     - wget https://niemeyer.s3.amazonaws.com/daemontools.tar.gz
     - tar xzvf daemontools.tar.gz
     - daemontools/svc
-    - export PATH=$PWD/buildtools:$PATH
+    - export PATH=$PWD/daemontools:$PATH
     - make startdb
 
 script:

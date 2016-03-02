@@ -21,7 +21,8 @@ env:
         - MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-3.0.8
 
 install:
-    - sudo apt-get install libsnmp30
+    - export DEBIAN_FRONTEND=noninteractive
+    - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install libsnmp30
 
     - wget $BUCKET/$MONGO.tgz
     - tar xzvf $MONGO.tgz

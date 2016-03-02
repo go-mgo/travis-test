@@ -17,8 +17,9 @@ env:
     matrix:
         #- MONGO=mongodb-linux-x86_64-subscription-ubuntu1204-2.2.6
         #- MONGO=mongodb-linux-x86_64-subscription-ubuntu1204-2.4.13
-        - MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-2.6.10
-        - MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-3.0.8
+        #- MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-2.6.10
+        #- MONGO=mongodb-linux-x86_64-enterprise-ubuntu1404-3.0.8
+        - MONGO=mongodb-linux-x86_64-2.4.14
 
 install:
     - export DEBIAN_FRONTEND=noninteractive

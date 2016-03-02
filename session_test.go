@@ -88,9 +88,11 @@ func (s *S) TestDialIPAddress(c *C) {
 	c.Assert(err, IsNil)
 	defer session.Close()
 
-	session, err = mgo.Dial("[::1%]:40001")
-	c.Assert(err, IsNil)
-	defer session.Close()
+	if os.Getenv("NOIPV6") != "1" {
+		session, err = mgo.Dial("[::1%]:40001")
+		c.Assert(err, IsNil)
+		defer session.Close()
+	}
 }
 
 func (s *S) TestURLSingle(c *C) {

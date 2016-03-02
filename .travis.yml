@@ -40,6 +40,7 @@ install:
     - go get gopkg.in/yaml.v2
 
 before_script:
+    - export NOIPV6=1
     - make startdb
 
 script:

@@ -1,5 +1,7 @@
 #!/bin/sh -e
 
+LINE="---------------"
+
 start() {
     mkdir _testdb
     cd _testdb
@@ -33,11 +35,15 @@ start() {
         sleep 1
     done
     echo "Failed to start processes. svstat _testdb/daemons/* output:"
+    echo $LINE
     svstat daemons/*
+    echo $LINE
     for DAEMON in daemons/*; do
         if $(svstat $DAEMON | grep ' up ' | grep ' [0-3] seconds' > /dev/null); then
             echo "Logs for _testdb/$DAEMON:"
+            echo $LINE
             cat $DAEMON/log/log.txt
+            echo $LINE
         fi
     done
     exit 1

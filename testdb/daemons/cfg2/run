@@ -1,0 +1,14 @@
+#!/bin/sh
+
+exec mongod \
+	--nohttpinterface \
+	--noprealloc \
+	--nojournal \
+	--smallfiles \
+	--nssize=1 \
+	--oplogSize=1 \
+	--dbpath ./db \
+	--bind_ip=127.0.0.1 \
+	--port 40102 \
+	--configsvr
+

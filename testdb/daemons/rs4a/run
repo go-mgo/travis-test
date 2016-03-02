@@ -5,5 +5,4 @@
 exec mongod $COMMONDOPTS \
 	--shardsvr \
 	--replSet rs4 \
-	--port 40041 \
-	--keyFile=../../keyfile
+	--port 40041

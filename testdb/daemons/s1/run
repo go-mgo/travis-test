@@ -1,7 +1,7 @@
 #!/bin/sh
 
-exec mongos \
-	--chunkSize 1 \
-	--bind_ip=127.0.0.1 \
+. ../.env
+
+exec mongos $COMMONSOPTS \
 	--port 40201 \
 	--configdb 127.0.0.1:40101

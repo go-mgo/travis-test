@@ -2,13 +2,14 @@ language: go
 
 go_import_path: gopkg.in/mgo.v2-unstable
 
+sudo: required
+dist: trusty
+
 addons:
     apt:
         packages:
             - libsensors4
-            - gcc
-            - g++
-            - perl-base
+            - libsnmp30
 
 env:
     global:

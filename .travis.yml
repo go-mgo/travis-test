@@ -2,6 +2,11 @@ language: go
 
 go_import_path: gopkg.in/mgo.v2-unstable
 
+addons:
+    apt:
+        packages:
+            - libsnmp30
+
 env:
     global:
         - BUCKET=https://niemeyer.s3.amazonaws.com

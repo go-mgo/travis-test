@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "RUNNING ON: $PWD"
+
 exec mongod \
 	--nohttpinterface \
 	--noprealloc \

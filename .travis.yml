@@ -5,7 +5,7 @@ go_import_path: gopkg.in/mgo.v2-unstable
 addons:
     apt:
         packages:
-            - libsensor4
+            - libsensors4
             - gcc
             - g++
             - perl-base

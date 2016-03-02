@@ -13,8 +13,6 @@ start() {
         rm -rf daemons/db3
     fi
     COUNT=$(ls daemons | wc -l)
-    echo "XXXX"
-    find
     echo "Running daemons..."
     svscan daemons &
     SVSCANPID=$!

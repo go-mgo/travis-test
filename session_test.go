@@ -3742,7 +3742,6 @@ func (s *S) TestFsyncLock(c *C) {
 	c.Assert(err, IsNil)
 
 	c.Assert(unlocked.After(unlocking), Equals, true)
-	c.Assert(unlocked.Sub(unlocking) < 2*time.Second, Equals, true)
 }
 
 func (s *S) TestFsync(c *C) {

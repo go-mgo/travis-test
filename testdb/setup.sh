@@ -32,6 +32,12 @@ start() {
     done
     echo "Failed to start processes. svstat _testdb/daemons/* output:"
     svstat daemons/*
+    for DAEMON in daemons/*; do
+        if $(svstat $DAEMON | grep ' up ' | grep ' [0-3] seconds' > /dev/null); then
+            echo "Logs for _testdb/$DAEMON:"
+            cat $DAEMON/log/log.txt
+        fi
+    done
     exit 1
 }
 

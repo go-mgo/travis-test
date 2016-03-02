@@ -2,7 +2,7 @@
 
 . ../.env
 
-if [ "$NOIPV6" -eq 1 ]; then
+if [ x$NOIPV6 = x1 ]; then
 	BINDIP="127.0.0.1"
 else
 	BINDIP="127.0.0.1,::1"

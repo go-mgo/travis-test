@@ -19,7 +19,7 @@ env:
         - MONGO=mongodb-linux-x86_64-2.4.14
         - MONGO=mongodb-linux-x86_64-2.6.11
         - MONGO=mongodb-linux-x86_64-3.0.9
-        - MONGO=mongodb-linux-x86_64-3.2.3
+        - MONGO=mongodb-linux-x86_64-3.2.3-nojournal
 
 install:
     #- export DEBIAN_FRONTEND=noninteractive

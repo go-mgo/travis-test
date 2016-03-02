@@ -51,6 +51,7 @@ stop() {
     if [ -d _testdb ]; then
         cd _testdb
         if [ -f svscan.pid ]; then
+            kill -9 $(cat svscan.pid) 2> /dev/null || true
             svc -dx daemons/* daemons/*/log > /dev/null 2>&1 || true
             COUNT=$(ls daemons | wc -l)
             echo "Shutting down $COUNT processes..."
@@ -62,7 +63,6 @@ stop() {
                 fi
                 sleep 1
             done
-            kill -9 $(cat svscan.pid) 2> /dev/null || true
             rm svscan.pid
             echo "Done."
         fi

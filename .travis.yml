@@ -10,6 +10,9 @@ addons:
 services:
     - mongodb
 
+install:
+    - go get gopkg.in/check.v1
+
 env:
     global:
 

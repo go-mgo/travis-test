@@ -28,9 +28,9 @@ install:
     - tar xzvf daemontools.tar.gz
     - export PATH=$PWD/daemontools:$PATH
 
-    - wget $BUCKET/libnetsnmp.tar.gz
-    - tar xzvf libnetsnmp.tar.gz
-    - export LD_LIBRARY_PATH=$PWD/libnetsnmp:$LD_LIBRARY_PATH
+    #- wget $BUCKET/libnetsnmp.tar.gz
+    #- tar xzvf libnetsnmp.tar.gz
+    #- export LD_LIBRARY_PATH=$PWD/libnetsnmp:$LD_LIBRARY_PATH
 
     - go get gopkg.in/check.v1
     - go get gopkg.in/yaml.v2

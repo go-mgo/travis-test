@@ -15,15 +15,17 @@ env:
     global:
         - BUCKET=https://niemeyer.s3.amazonaws.com
     matrix:
-        - MONGO=mongodb-linux-x86_64-2.2.7
-        - MONGO=mongodb-linux-x86_64-2.4.14
-        - MONGO=mongodb-linux-x86_64-2.6.11
-        - MONGO=mongodb-linux-x86_64-3.0.9
-        - MONGO=mongodb-linux-x86_64-3.2.3-nojournal
-        - MONGO=mongodb-linux-x86_64-3.0.9 GIMME_GO_VERSION=1.5.3
-        - MONGO=mongodb-linux-x86_64-3.0.9 GIMME_GO_VERSION=1.6
+        - GO=1.4.1 MONGO=mongodb-linux-x86_64-2.2.7
+        - GO=1.4.1 MONGO=mongodb-linux-x86_64-2.4.14
+        - GO=1.4.1 MONGO=mongodb-linux-x86_64-2.6.11
+        - GO=1.4.1 MONGO=mongodb-linux-x86_64-3.0.9
+        - GO=1.4.1 MONGO=mongodb-linux-x86_64-3.2.3-nojournal
+        - GO=1.5.3 MONGO=mongodb-linux-x86_64-3.0.9
+        - GO=1.6   MONGO=mongodb-linux-x86_64-3.0.9
 
 install:
+    - eval $(gimme $GO)
+
     #- export DEBIAN_FRONTEND=noninteractive
     #- sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install libsnmp30
 

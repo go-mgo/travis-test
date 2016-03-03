@@ -24,7 +24,7 @@ env:
         - GO=1.6   MONGO=mongodb-linux-x86_64-3.0.9
 
 install:
-    - eval $(gimme $GO)
+    - eval "$(gimme $GO)"
 
     #- export DEBIAN_FRONTEND=noninteractive
     #- sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install libsnmp30
